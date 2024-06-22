@@ -56,10 +56,27 @@ class JpaRepositoryTest {
         String updatedHashtag = "#updatedHashtag";
         article.setHashtag(updatedHashtag);
 
-        // when
-        Article savedArticle = articleRepository.save(article);
+        // whend
+        Article savedArticle = articleRepository.saveAndFlush(article);
 
         // then
         assertThat(savedArticle).hasFieldOrPropertyWithValue("hashtag", updatedHashtag);
     }
+    @DisplayName("deleteテスト")
+    @Test
+    void givenTestData_whenDeleting_thenWorksFine() {
+        // given
+        Article article = articleRepository.findById(1L).orElseThrow();
+        long previousArticleCount = articleRepository.count();
+        long previousArticleCommentCount = articleCommentRepository.count();
+        int deletedCommentsSize = article.getArticleComments().size();
+
+        // whend
+        articleRepository.delete(article);
+
+        // then
+        assertThat(articleRepository.count()).isEqualTo(previousArticleCount - 1);
+        assertThat(articleCommentRepository.count()).isEqualTo(previousArticleCommentCount - deletedCommentsSize);
+    }
+
 }
