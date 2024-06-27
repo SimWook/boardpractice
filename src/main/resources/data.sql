@@ -298,3 +298,6 @@ insert into article (title, content, hashtag, created_by, modified_by, created_a
 insert into article (title, content, hashtag, created_by, modified_by, created_at, modified_at) values ('Extraction', '1HHLHM1nopgFbapaDaC51S8PvgvPT7Zuxo', null, 'Forrester', 'Mill', '2024-06-09', '2023-12-10');
 insert into article (title, content, hashtag, created_by, modified_by, created_at, modified_at) values ('Candleshoe', '18mYgEsy7TvQ36ucR7m33XMpUBZW8puvhn', '$2a$04$CfPTPD5mj6JCzRaNiVfaDeeBpj7vf9z.mu.ezmzf46KQ5xYGZGM8O', 'Clarance', 'Iolanthe', '2023-08-21', '2023-08-18');
 insert into article (title, content, hashtag, created_by, modified_by, created_at, modified_at) values ('Merlusse', '18sNnPF99RgMwYM2wDvBje2tGXFACMjiFN', '$2a$04$yvpMgoAvgqniS69eQBSGRu5vTwOtZlQ4uLSfSNmT12EmOyNcHo.oO', 'Emanuel', 'Hall', '2023-08-08', '2023-09-22');
+insert into article_comment (article_id, content, created_by, modified_by, created_at, modified_at) values (1, 'Sed ante. Vivamus tortor. Duis mattis egestas metus.', 'Dorolice', 'Dorolice', '2024-05-29', '2023-07-07');
+insert into article_comment (article_id, content, created_by, modified_by, created_at, modified_at) values (2, 'Sed ante. Vivamus tortor. Duis mattis egestas metus.', 'Dorolice', 'Dorolice', '2024-05-29', '2023-07-07');
+

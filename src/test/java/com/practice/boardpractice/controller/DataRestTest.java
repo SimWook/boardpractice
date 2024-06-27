@@ -52,7 +52,16 @@ public class DataRestTest {
                 .andExpect(content().contentType(MediaType.valueOf("application/hal+json")));
     }
 
-    @DisplayName("[api] コメントリスト1件")
+    @DisplayName("[api] コメントリスト取得2")
+    @Test
+    void articleCommentsTest() throws Exception {
+
+        mvc.perform(get("/api/articleComments"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.valueOf("application/hal+json")));
+    }
+
+    @DisplayName("[api] コメント1件取得")
     @Test
     void articleCommentOneTest() throws Exception {
 
