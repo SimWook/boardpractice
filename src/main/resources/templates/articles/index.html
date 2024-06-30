@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="jp" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>掲示板</title>
+</head>
+<body>
+<header th:replace="~{header :: header}"></header>
+<main>
+    <form>
+        <label for="search-type" hidden>検索</label>
+        <select id="search-type" name="search-type">
+            <option value="1">タイトル</option>
+            <option value="2">本文</option>
+            <option value="3">ID</option>
+            <option value="4">名称</option>
+            <option value="5">hashtag</option>
+        </select>
+        <label for="search-value" hidden>検索欄</label>
+        <input id="search-value" type="search" placeholder="入力してください" name="search-value">
+        <button type="submit">検索</button>
+    </form>
+
+    <table>
+        <thead>
+        <tr>
+            <th>タイトル</th>
+            <th>hashtag</th>
+            <th>作成者</th>
+            <th>作成日</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>#java</td>
+            <td>Uno</td>
+            <td>2020-01-01</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>#java</td>
+            <td>Uno</td>
+            <td>2020-01-01</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>#java</td>
+            <td>Uno</td>
+            <td>2020-01-01</td>
+        </tr>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+
+    <nav>
+        <table>
+            <tr>
+                <td>previous</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        </table>
+    </nav>
+</main>
+<footer th:replace="~{footer :: footer}"></footer>
+</body>
+</html>

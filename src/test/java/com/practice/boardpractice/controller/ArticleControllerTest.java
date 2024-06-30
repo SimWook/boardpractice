@@ -10,7 +10,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@Disabled("作成中")
 @DisplayName("View Controller: Article")
 @WebMvcTest(ArticleController.class)
 class ArticleControllerTest {
@@ -22,13 +21,15 @@ class ArticleControllerTest {
 
     @DisplayName("[view][GET] 掲示板リストページ - 正常パターン")
     @Test
-    public void get_article_list_success() throws Exception {
+    void get_article_list_success() throws Exception {
         mockMvc.perform(get("/articles"))
                 .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.TEXT_HTML))
                 .andExpect(view().name("articles/index"))
-                .andExpect(model().attributeExists("article"));
+                .andExpect(model().attributeExists("articles"));
     }
 
+    @Disabled("作成中")
     @DisplayName("[view][GET] 掲示板1件取得ページ - 正常パターン")
     @Test
     public void get_article_one_success() throws Exception {
@@ -38,7 +39,7 @@ class ArticleControllerTest {
                 .andExpect(model().attributeExists("article"))
                 .andExpect(model().attributeExists("articleComments"));
     }
-
+    @Disabled("作成中")
     @DisplayName("[view][GET] 掲示板検索ページ - 正常パターン")
     @Test
     public void get_article_list_search() throws Exception {
@@ -48,6 +49,7 @@ class ArticleControllerTest {
                 .andExpect(model().attributeExists("articles/search"));
     }
 
+    @Disabled("作成中")
     @DisplayName("[view][GET] 掲示板ハッシュタグ検索ページ - 正常パターン")
     @Test
     public void get_article_list_hashtag() throws Exception {
