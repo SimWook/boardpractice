@@ -3,6 +3,7 @@ package com.practice.boardpractice.controller;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
@@ -15,7 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class ArticleControllerTest {
     private final MockMvc mockMvc;
 
-    public ArticleControllerTest(MockMvc mockMvc) {
+    public ArticleControllerTest(@Autowired MockMvc mockMvc) {
         this.mockMvc = mockMvc;
     }
 
@@ -24,7 +25,7 @@ class ArticleControllerTest {
     void get_article_list_success() throws Exception {
         mockMvc.perform(get("/articles"))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.TEXT_HTML))
+                .andExpect(content().contentType(MediaType.valueOf("text/html;charset=UTF-8")))
                 .andExpect(view().name("articles/index"))
                 .andExpect(model().attributeExists("articles"));
     }
@@ -32,7 +33,7 @@ class ArticleControllerTest {
     @Disabled("作成中")
     @DisplayName("[view][GET] 掲示板1件取得ページ - 正常パターン")
     @Test
-    public void get_article_one_success() throws Exception {
+    void get_article_one_success() throws Exception {
         mockMvc.perform(get("/articles/1"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("articles/detail"))
@@ -42,7 +43,7 @@ class ArticleControllerTest {
     @Disabled("作成中")
     @DisplayName("[view][GET] 掲示板検索ページ - 正常パターン")
     @Test
-    public void get_article_list_search() throws Exception {
+    void get_article_list_search() throws Exception {
         mockMvc.perform(get("/articles/search"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.TEXT_HTML))
@@ -52,7 +53,7 @@ class ArticleControllerTest {
     @Disabled("作成中")
     @DisplayName("[view][GET] 掲示板ハッシュタグ検索ページ - 正常パターン")
     @Test
-    public void get_article_list_hashtag() throws Exception {
+    void get_article_list_hashtag() throws Exception {
         mockMvc.perform(get("/articles/search-hashtag"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.TEXT_HTML))
