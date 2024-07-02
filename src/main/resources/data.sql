@@ -1,3 +1,5 @@
+insert into user_account (user_id, user_password, nickname, email, memo, created_at, created_by, modified_at, modified_by) values ('uno', 'asdf1234', 'Uno', 'uno@mail.com', 'I am Uno.', now(), 'uno', now(), 'uno');
+
 insert into article (title, content, hashtag, created_by, modified_by, created_at, modified_at) values ('Murder on Flight 502', '18ardZJXC6n2tPr7psNv8A4xC9dmeAX6ro', '$2a$04$3Tf2sRK8IgSspSG/UjQqxuNkZ87Z1OgtqUNLZhcWPFZrbX7NsgfXi', 'Samuel', 'Greta', '2023-08-29', '2024-02-17');
 insert into article (title, content, hashtag, created_by, modified_by, created_at, modified_at) values ('Love Story 2050', '17jofndD8FWMWghnkHQgvh4CbnDUdwwtKe', '$2a$04$fApJRQVp44cANkE3yp.lr.O0KHqmGyPSttBNM0ZH2ig8GeP8c2NKy', 'Eduino', 'Janene', '2023-08-07', '2023-10-23');
 insert into article (title, content, hashtag, created_by, modified_by, created_at, modified_at) values ('Death Proof', '14SRkgppduCE5j4tbFWzqYHGoWs3bRPR3f', '$2a$04$2PVQCpquEMpETUSljl5cneJXPPth2J5OGIwK5yFjiXMIUOlGzXZye', 'Mauricio', 'Cletus', '2024-03-12', '2023-09-14');

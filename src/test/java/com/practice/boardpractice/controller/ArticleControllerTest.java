@@ -1,10 +1,12 @@
 package com.practice.boardpractice.controller;
 
+import com.practice.boardpractice.config.SecurityConfig;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -12,6 +14,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @DisplayName("View Controller: Article")
+@Import(SecurityConfig.class)
 @WebMvcTest(ArticleController.class)
 class ArticleControllerTest {
     private final MockMvc mockMvc;
@@ -30,7 +33,6 @@ class ArticleControllerTest {
                 .andExpect(model().attributeExists("articles"));
     }
 
-    @Disabled("作成中")
     @DisplayName("[view][GET] 掲示板1件取得ページ - 正常パターン")
     @Test
     void get_article_one_success() throws Exception {
@@ -40,6 +42,7 @@ class ArticleControllerTest {
                 .andExpect(model().attributeExists("article"))
                 .andExpect(model().attributeExists("articleComments"));
     }
+
     @Disabled("作成中")
     @DisplayName("[view][GET] 掲示板検索ページ - 正常パターン")
     @Test
